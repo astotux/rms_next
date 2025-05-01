@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id              Int           @id @default(autoincrement())
+  name            String        @unique
+  width           Int
+  length          Int
+  floors          Int
+  area            Float
+  rooms           Int
+  wallMaterialId  Int
+  wallMaterial    WallMaterial  @relation(fields: [wallMaterialId], references: [id])
+  completions     Completion[]
+
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model WallMaterial {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  projects Project[]
+}
+
+model Completion {
+  id              Int                @id @default(autoincrement())
+  completionType  String             // Базовая, Стандарт, Премиум
+  price           Int                // Цена в рублях, например
+  projectId       Int
+  project         Project            @relation(fields: [projectId], references: [id])
+  details         CompletionDetail[]
+}
+
+model CompletionDetail {
+  id            Int         @id @default(autoincrement())
+  name          String
+  value         String?
+  completionId  Int
+  completion    Completion  @relation(fields: [completionId], references: [id])
+}
