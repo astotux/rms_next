@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "@yandex/ymaps3-default-ui-theme": "^0.0.19",
     "form-data": "^4.0.2",
     "formidable": "^3.5.4",
     "grammy": "^1.36.1",
@@ -19,7 +20,9 @@
     "prisma": "^6.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sqlite3": "^5.1.7"
+    "react-imask": "^7.6.1",
+    "sqlite3": "^5.1.7",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

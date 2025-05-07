@@ -11,19 +11,28 @@ datasource db {
 }
 
 model Project {
-  id              Int           @id @default(autoincrement())
-  name            String        @unique
+  id              Int             @id @default(autoincrement())
+  name            String          @unique
   width           Int
   length          Int
   floors          Int
   area            Float
   rooms           Int
   wallMaterialId  Int
-  wallMaterial    WallMaterial  @relation(fields: [wallMaterialId], references: [id])
+  wallMaterial    WallMaterial    @relation(fields: [wallMaterialId], references: [id])
   completions     Completion[]
 
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
+  images          ProjectImage[]  // Связанные изображения
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+model ProjectImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
 }
 
 model WallMaterial {
@@ -35,7 +44,7 @@ model WallMaterial {
 model Completion {
   id              Int                @id @default(autoincrement())
   completionType  String             // Базовая, Стандарт, Премиум
-  price           Int                // Цена в рублях, например
+  price           Int                // Цена в рублях
   projectId       Int
   project         Project            @relation(fields: [projectId], references: [id])
   details         CompletionDetail[]
@@ -47,4 +56,13 @@ model CompletionDetail {
   value         String?
   completionId  Int
   completion    Completion  @relation(fields: [completionId], references: [id])
+}
+
+model BuiltHouse {
+  id          Int      @id @default(autoincrement())
+  latitude    Float
+  longitude   Float
+  image       String   // Путь к изображению
+  title       String
+  description String
 }

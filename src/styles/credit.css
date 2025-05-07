@@ -1,0 +1,350 @@
+:root {
+  --scale: 1;
+}
+.mortgage-section {
+  display: flex;
+  gap: calc(40px * var(--scale));
+  font-family: 'Inter', sans-serif;
+  margin: calc(40px * var(--scale)) 0;
+}
+.banner-img {
+  background-image: url("../img/banner-1.png");
+  z-index: -3;
+  background-position: center;
+  height: calc(653px * var(--scale));
+  width: 100%;
+  background-size: cover;
+}
+
+.banner-container {
+  display: flex;
+  gap: calc(237.6px * var(--scale));
+  position: absolute;
+  left: calc(200px * var(--scale));
+}
+.subtitle{
+  font-weight: 500;
+  font-size: calc(40px * var(--scale));
+}
+.mortgage-left {
+  width: calc(900px * var(--scale));
+  /* max-width: 500px; */
+  flex: 1;
+}
+
+.icon {
+  width: calc(24px * var(--scale));
+  vertical-align: middle;
+  margin-right: calc(8px * var(--scale));
+}
+
+.subtitle {
+  font-weight: bold;
+  margin-top: calc(16px * var(--scale));
+}
+
+.conditions {
+  margin: calc(16px * var(--scale)) 0;
+  padding-left: calc(20px * var(--scale));
+  list-style: none;
+}
+
+.conditions li {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: calc(10px * var(--scale));
+  padding-left: calc(16px * var(--scale));
+  font-weight: 400;
+  font-size: calc(26px * var(--scale));
+}
+
+.conditions li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  font-size: calc(12px * var(--scale));
+  width: calc(10px * var(--scale));
+  height: calc(10px * var(--scale));
+  background: linear-gradient(135deg, #97ff6d 0%, #5b9941 100%);
+}
+.mortgage-title{
+  font-weight: 600;
+  font-size: calc(48px * var(--scale));
+  color: #000;
+}
+.note {
+  font-weight: 400;
+  font-size: calc(26px * var(--scale));
+}
+
+.mortgage-right {
+  height: calc(610px * var(--scale));
+  width: calc(660px * var(--scale));
+  flex-shrink: 0;
+}
+
+.tabs {
+  /* display: flex; */
+  /* gap: 30px; */
+  margin-bottom: calc(42px * var(--scale));
+}
+
+.tab {
+  background: linear-gradient(270deg, #590d3c 0%, #bf1c81 100%);
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: calc(24px * var(--scale));
+  padding: calc(12px * var(--scale)) calc(30px * var(--scale));
+  margin-left: calc(42px * var(--scale));
+
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #97ff6d 0%, #5b9941 62.92%);
+  color: white;
+  margin-left: 0;
+}
+  
+.program-card {
+  width: calc(661px * var(--scale));
+  height: calc(410px * var(--scale));
+  padding: calc(20px * var(--scale));
+  background: #fff;
+
+  box-shadow: 0 0 calc(16px * var(--scale)) 0 rgba(0, 0, 0, 0.2);
+}
+
+.program-title {
+  font-weight: 500;
+  font-size: calc(40px * var(--scale));
+  margin-bottom: calc(12px * var(--scale));
+}
+
+.program-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(50px * var(--scale));
+  font-size: calc(14px * var(--scale));
+  margin-bottom: calc(16px * var(--scale));
+}
+
+.program-info > div {
+  width: calc(225px * var(--scale));
+}
+
+.full-width {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  font-size: calc(28px * var(--scale));
+  color: #b1b1b1;
+}
+
+.value {
+  margin-top: calc(2px * var(--scale));
+  font-weight: 500;
+  font-size: calc(32px * var(--scale));
+  color: #0a0a0a;
+}
+
+.buttons {
+  display: flex;
+  gap: calc(8px * var(--scale));
+}
+
+.btn {
+  flex: 1;
+  padding: calc(10px * var(--scale));
+  width: calc(300px * var(--scale));
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: calc(24px * var(--scale));
+}
+
+.btn-purple {
+  background: linear-gradient(91.19deg, #BF1C81 0%, #590D3C 100%);
+}
+
+.btn-green {
+  background: linear-gradient(91.86deg, #97FF6D 0%, #5B9941 63%);
+}
+
+.btn-icon {
+  width: calc(16px * var(--scale));
+  height: calc(16px * var(--scale));
+  margin-right: calc(6px * var(--scale));
+}
+.mortgage-section{
+  padding: 0 calc(130px * var(--scale));
+}
+
+@media (max-width: 1700px) {
+  :root {
+      --scale: 0.885;
+  }
+}
+
+@media (max-width: 1600px) {
+  :root {
+      --scale: 0.833;
+  }
+}
+
+@media (max-width: 1500px) {
+  :root {
+      --scale: 0.781;
+  }
+}
+
+@media (max-width: 1400px) {
+  :root {
+      --scale: 0.729;
+  }
+}
+
+@media (max-width: 1300px) {
+  :root {
+      --scale: 0.677;
+  }
+}
+
+@media (max-width: 1250px) {
+  :root {
+      --scale: 0.651;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+      --scale: 0.625;
+  }
+}
+
+@media (max-width: 1150px) {
+  :root {
+      --scale: 0.598;
+  }
+}
+
+@media (max-width: 1100px) {
+  :root {
+      --scale: 0.572;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+      --scale: 0.533;
+  }
+}
+
+@media (max-width: 950px) {
+  :root {
+      --scale: 0.494;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+      --scale: 0.468;
+  }
+}
+
+@media (max-width: 850px) {
+  :root {
+      --scale: 0.442;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+      --scale: 0.416;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+      --scale: 0.4;
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+      --scale: 0.390;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+      --scale: 0.364;
+  }
+}
+
+@media (max-width: 650px) {
+  :root {
+      --scale: 0.338;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+      --scale: 0.312;
+  }
+}
+
+@media (max-width: 575px) {
+  :root {
+      --scale: 0.299;
+  }
+}
+
+@media (max-width: 550px) {
+  :root {
+      --scale: 0.286;
+  }
+}
+
+@media (max-width: 525px) {
+  :root {
+      --scale: 0.273;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+      --scale: 0.260;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+      --scale: 0.4;
+  }
+  .banner-img,
+  .banner-black{
+    height: 370px;
+  }
+  .mortgage-section{
+    flex-direction: column;
+  }
+  .mortgage-right{
+    width: 100%;
+  }
+  .mortgage-left{
+    width: 100%;
+  }
+  .banner-container{
+    left: 0;
+  }
+}
