@@ -3,11 +3,19 @@
     flex-direction: column;
     width: 220px;
     gap: 4px;
-  }
-  
-  .popup.second_variant {
-    gap: 32px;
-    width: 211px;
+    color: #ffffff;
+    border-radius: 0;
+    position: absolute;
+    top: -80%;
+    left: -80%;
+    background: linear-gradient(134.31deg,
+            rgba(151, 255, 109, 1) 0%,
+            rgba(91, 153, 65, 1) 100%);
+    padding: 10px;
+    z-index: 2;
+    transform: scale(0);
+    transform-origin: center bottom;
+    transition: transform 0.3s ease;
   }
   
   .popup__title {
@@ -22,6 +30,7 @@
   }
   
   .point {
+    cursor: pointer;
     width: 80px;
     padding: 5px;
     
@@ -73,19 +82,7 @@
   }
   
   .popup {
-    color: #ffffff;
-    border-radius: 0;
-    position: absolute;
-    top: -80%;
-    left: -80%;
-    background: linear-gradient(134.31deg,
-            rgba(151, 255, 109, 1) 0%,
-            rgba(91, 153, 65, 1) 100%);
-    padding: 10px;
-    z-index: 2;
-    transform: scale(0);
-    transform-origin: center bottom;
-    transition: transform 0.3s ease;
+    
   }
 
   .popup img {

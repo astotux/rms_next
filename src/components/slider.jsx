@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import ShareButton from './shareButton';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/styles/main.css';
+import Link from 'next/link';
 
 
 const ProjectSlider = () => {
@@ -23,7 +25,7 @@ const ProjectSlider = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setProjects(data);
+        setProjects(data.projects);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -82,16 +84,19 @@ const ProjectSlider = () => {
           <SwiperSlide key={project.id}>
             <div className="project-card">
               {project.images.length > 0 && (
-                <img 
-                  alt={`Проект дома ${project.name}`} 
-                  src={project.images[0].url} 
-                  onError={(e) => {
-                    e.target.src = '/images/house-placeholder.png'; // Фолбек если изображение не загрузится
-                  }}
-                />
+                <div className='project-img-conrainer'>
+                  <img 
+                    className='project-card-img'
+                    alt={`Проект дома ${project.name}`} 
+                    src={project.images[0].url} 
+                    onError={(e) => {
+                      e.target.src = '/images/house.png';
+                    }}
+                  />
+                </div>
               )}
               <div>
-                <h3 className="card-title">"{project.name}"</h3>
+                <h3 className="card-title">{project.name}</h3>
                 {project.completions.length > 0 && (
                   <p className="card-und-title">от <span className="card-price">
                     {formatPrice(project.completions[0].price)}
@@ -155,12 +160,10 @@ const ProjectSlider = () => {
                 </li>
               </ul>
               <div className="card-button-cont">
-                <div className="card-share-cont button-purple">
-                  <img alt="Поделиться" src="/images/icons/share.png" />
-                </div>
-                <div className="more-button button-purple">
+                <ShareButton project={project} />
+                <Link href={`/projects/${project.id}`} className="more-button button-purple">
                   <span>Подробнее</span>
-                </div>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

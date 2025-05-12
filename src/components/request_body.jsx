@@ -33,7 +33,7 @@ export default function RequestBodyForm() {
 
     setTimeout(() => {
       setButtonText('Отправить заявку')
-    }, 2000)
+    }, 4000)
   }
 
   return (

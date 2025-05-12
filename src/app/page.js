@@ -2,12 +2,14 @@ import RequestForm from "@/components/request";
 import RequestBodyForm from "@/components/request_body";
 import Map from "@/components/map";
 import ProjectSlider from "@/components/slider";
+import ProjectSelector from "@/components/progres";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
         <section className="banner">
-            <div className="banner-img"></div>
+            <div className="banner-img banner-1-img"></div>
             <div className="banner-black"></div>
             <div className="banner-container">
                 <div className="banner-content">
@@ -49,18 +51,18 @@ export default function Home() {
                 </div>
                 <div className="banks-container" itemScope="" itemType="https://schema.org/FinancialService">
                     <meta content="Банки-партнеры РМСтрой" itemProp="name" />
-                    <a className="bank-block" href="#" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
+                    <Link className="bank-block" href="sber" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="СберБанк" itemProp="name" />
                         <img alt="СберБанк" className="bank-img" src="/images/sberbank.png" />
-                    </a>
-                    <a className="bank-block" href="#" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
+                    </Link>
+                    <Link className="bank-block" href="vtb" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="ВТБ" itemProp="name" />
                         <img alt="ВТБ" className="bank-img" src="/images/vtb.png" />
-                    </a>
-                    <a className="bank-block" href="#" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
+                    </Link>
+                    <Link className="bank-block" href="rosselhoz" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="РоссельхозБанк" itemProp="name" />
                         <img alt="РоссельхозБанк" className="bank-img" src="/images/rosbank.png" />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -80,7 +82,7 @@ export default function Home() {
                         <h2 className="ready-projects-title title-top">Готовые проекты домов</h2>
                     </div>
                     <div className="all-project-cont">
-                        <a className="all-project-div" href="#"><span>Все проекты домов</span></a>
+                        <Link className="all-project-div link-projects" href="projects"><span>Все проекты домов</span></Link>
                     </div>
                 </div>
                 <ProjectSlider />
@@ -182,125 +184,11 @@ export default function Home() {
                         <h2 className="ready-projects-title title-top">Подбор проекта</h2>
                     </div>
                     <div className="all-project-cont">
-                        <a className="all-project-div" href="#"><span>Все проекты домов</span></a>
+                        <Link className="all-project-div link-projects" href="projects"><span>Все проекты домов</span></Link>
                     </div>
                 </div>
                 <div>
-                    <div className="project-selection-cont">
-                        <div className="project-card ready-project">
-                            <img alt="Проект дома ГДП 113" src="/images/house.png" />
-                            <div>
-                                <h3 className="card-title">“ГДП 113”</h3>
-                                <p className="card-und-title">от <span className="card-price">10 600 000 ₽</span></p>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div className="card-icon-cont">
-                                        <img alt="Размер дома в метрах" src="/images/icons/size.svg" />
-                                    </div>
-                                    <div>
-                                        <p className="card-parametrs-name">Размер</p>
-                                        <p className="card-parametrs">10x8</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="card-icon-cont">
-                                        <img alt="Количество этажей" src="/images/icons/floors.svg" />
-                                    </div>
-                                    <div>
-                                        <p className="card-parametrs-name">Этажи</p>
-                                        <p className="card-parametrs">2</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="card-icon-cont">
-                                        <img alt="Общая площадь дома" src="/images/icons/square.svg" />
-                                    </div>
-                                    <div>
-                                        <p className="card-parametrs-name">Площадь</p>
-                                        <p className="card-parametrs">291.12</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="card-icon-cont">
-                                        <img alt="Количество комнат" src="/images/icons/rooms.svg" />
-                                    </div>
-                                    <div>
-                                        <p className="card-parametrs-name">Комнаты</p>
-                                        <p className="card-parametrs">6</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div className="card-button-cont">
-                                <div className="card-share-cont button-purple">
-                                    <img alt="Поделиться" src="/images/icons/share.png" />
-                                </div>
-                                <div className="more-button button-purple"><span>Подробнее</span></div>
-                            </div>
-                        </div>
-                        <div className="choice-parametrs">
-                            <div className="progres-bar-conts">
-                                <div className="progres-bar-cont">
-                                    <div className="progres-bar">
-                                        1/5
-                                    </div>
-                                </div>
-                                <button className="selection-button button-purple">
-                                    <span>Назад</span>
-                                </button>
-                            </div>
-                            <div className="progres-title-cont">
-                                <div className="progres-title-num-cont">
-                                    <p className="progres-title-num">1</p>
-                                </div>
-                                <p className="progres-title">Выберите этажность дома:</p>
-                            </div>
-                            <div className="project-selection-cards">
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                                <div className="project-selection-card">
-                                    <div className="project-parametr">Одноэтажный</div>
-                                    <img alt="Одноэтажный дом" className="project-selection-img"
-                                        src="/images/house.png" />
-                                    <div className="project-parametr-choice"><img alt="Галочка" className="check_mark_purple"
-                                            src="/images/icons/check_mark_purple.svg" /></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ProjectSelector />
                 </div>
             </div>
         </section>
@@ -319,7 +207,7 @@ export default function Home() {
                         <h2 className="ready-projects-title title-top">Готовые дома на карте</h2>
                     </div>
                     <div className="all-project-cont">
-                        <a className="all-project-div" href="#"><span>Все проекты домов</span></a>
+                        <Link className="all-project-div link-projects" href="projects"><span>Все проекты домов</span></Link>
                     </div>
                 </div>
                 <div className="project-selection-cont">

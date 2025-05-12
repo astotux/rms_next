@@ -5,7 +5,6 @@ import { IMaskInput } from 'react-imask'
 export default function RequestForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [file, setFile] = useState(null)
   const [status, setStatus] = useState('')
   const [isVisible, setIsVisible] = useState(false)
 
@@ -14,7 +13,7 @@ export default function RequestForm() {
       setIsVisible(true)
       const timer = setTimeout(() => {
         setIsVisible(false)
-      }, 2000)
+      }, 4000)
       return () => clearTimeout(timer)
     }
   }, [status])
@@ -26,7 +25,6 @@ export default function RequestForm() {
     const formData = new FormData()
     formData.append('name', name)
     formData.append('phone', phone)
-    if (file) formData.append('file', file)
 
     const res = await fetch('../api/send-request', {
       method: 'POST',
@@ -37,7 +35,6 @@ export default function RequestForm() {
       setStatus('Заявка отправлена!')
       setName('')
       setPhone('')
-      setFile(null)
     } else {
       setStatus('Ошибка отправки')
     }

@@ -15,7 +15,7 @@ model Project {
   name            String          @unique
   width           Int
   length          Int
-  floors          Int
+  floors          String
   area            Float
   rooms           Int
   wallMaterialId  Int

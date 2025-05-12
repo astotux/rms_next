@@ -300,11 +300,22 @@
   border-top: calc(8px * var(--scale)) solid #800047;
 }
 
-.tasklist-button {
+.copmlectation-button {
   width: 100%;
-  height: calc(53px * var(--scale));
-  gap: calc(50px * var(--scale));
+    height: calc(53px * var(--scale));
+    justify-content: center;
+    align-items: center;
+    gap: calc(50px * var(--scale));
+    margin-top: calc(8px * var(--scale));
+    font-size: calc(19.2px * var(--scale));
+    color: var(--color-white);
+    font-weight: 700;
+    display: flex;
+    position: relative;
+    overflow: visible;
 }
+
+
 
 
 @media (max-width: 1700px) {

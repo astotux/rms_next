@@ -1,8 +1,33 @@
 import '@/styles/main.css';
 import '@/styles/reset.css';
 import { Montserrat } from 'next/font/google'
+import Link from 'next/link';
+
 
 const mont = Montserrat()
+
+export const metadata = {
+    metadataBase: new URL('https://ваш-сайт.com'),
+    openGraph: {
+      title: 'РМСтрой - Проекты домов',
+      description: 'Каталог проектов домов от компании РМСтрой',
+      images: [
+        {
+          url: '/images/og-default.jpg',
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'ru_RU',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'РМСтрой - Проекты домов',
+      description: 'Каталог проектов домов от компании РМСтрой',
+      images: ['/images/og-default.jpg'],
+    },
+  };
 
 export default function RootLayout({ children }) {
   return (
@@ -10,7 +35,7 @@ export default function RootLayout({ children }) {
 
       <head>
           <link href="https://fonts.googleapis.com" rel="preconnect" />
-          <link crossOrigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+          <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap"
               rel="stylesheet" />
           <meta charSet="utf-8" />
@@ -37,22 +62,28 @@ export default function RootLayout({ children }) {
 
       <body className={mont.className}>
           <header className="header">
-            <a href="#">
+            <Link href="/">
                 <img alt="РМСтрой" className="logo" src="/images/icons/logo.svg" />
-            </a>
+            </Link>
             <nav className="nav">
-                <a className="rectangle-button purple-gradient button-purple" href="#"><span>Отправить заявку</span></a>
-                <a className="rectangle-button green-gradient all-project-div all-project-div-a" href="#"><span>Проекты
-                        домов</span></a>
-                <a className="black header-link" href="#">Услуги</a>
-                <a className="black header-link" href="#">О нас</a>
+                <Link className="rectangle-button green-gradient all-project-div all-project-div-a" href="/projects"><span>Проекты
+                        домов</span></Link>
+                        <div class="dropdown">
+                        <button class="dropdown-btn black">Банки-партнёры</button>
+                        <div class="dropdown-content">
+                            <Link href="/sber">СберБанк</Link>
+                            <Link href="/vtb">ВТБ</Link>
+                            <Link href="/rosselhoz">РоссельхозБанк</Link>
+                        </div>
+                    </div>
+                <Link className="black header-link" href="#">О нас</Link>
             </nav>
             <div className="nav-info">
                 <div>
                     <p className="nav-consult">Консультация | Круглосуточно</p>
-                    <p className="company-phone">+7 (922) 080-89-59</p>
+                    <a className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</a>
                 </div>
-                <a className="vk-logo" href="#">
+                <a className="vk-logo" href="https://vk.com/rmstroikomi">
                     <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
                 </a>
             </div>
@@ -60,19 +91,23 @@ export default function RootLayout({ children }) {
         {children}
         <footer>
             <div className="footer-cont">
-                <img alt="РМСтрой" className="footer-logo" src="/images/icons/footer_logo.svg" />
+                <Link className="black" href="/">
+                    <img alt="РМСтрой" className="footer-logo" src="/images/icons/footer_logo.svg" />
+                </Link>
                 <nav className="nav">
-                    <a className="black" href="#">Главная</a>
-                    <a className="black" href="#">Все проекты</a>
-                    <a className="black" href="#">Услуги</a>
-                    <a className="black" href="#">О нас</a>
+                    <Link className="black" href="/">Главная</Link>
+                    <Link className="black" href="/projects">Все проекты</Link>
+                    
+                    <Link className="black" href="#">О нас</Link>
                 </nav>
                 <div className="nav-info">
                     <div>
                         <p className="nav-consult">Консультация | Круглосуточно</p>
-                        <p className="company-phone">+7 (922) 080-89-59</p>
+                        <a className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</a>
                     </div>
-                    <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
+                    <a className="vk-logo" href="https://vk.com/rmstroikomi">
+                        <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
+                    </a>
                 </div>
             </div>
             <div className="p-s">

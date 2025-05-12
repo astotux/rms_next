@@ -15,16 +15,16 @@ async function main() {
   // Создаем проекты домов
   const projects = [
     {
-      name: 'Дом "Коробка 2"',
+      name: 'Дом "Коробка 4"',
       width: 9,
       length: 11,
-      floors: 2,
+      floors: "2",
       area: 110.5,
       rooms: 5,
       wallMaterialId: wallMaterials[0].id, // Арболит
       images: [
-        '/images/projects/box1.jpg',
-        '/images/projects/box2.jpg'
+        '/images/progres/10x10.jpg',
+        '/images/progres/10x10.jpg'
       ],
       completions: [
         {
@@ -46,16 +46,16 @@ async function main() {
       ]
     },
     {
-      name: 'Дом "Уютный 2"',
+      name: 'Дом "Уютный 4"',
       width: 10,
       length: 12,
-      floors: 1,
+      floors: "1",
       area: 95.3,
       rooms: 4,
       wallMaterialId: wallMaterials[1].id, // Газобетон
       images: [
-        '/images/projects/cozy1.jpg',
-        '/images/projects/cozy2.jpg'
+        '/images/progres/1_etaj.jpg',
+        '/images/progres/1_etaj.jpg'
       ],
       completions: [
         {
@@ -77,16 +77,16 @@ async function main() {
       ]
     },
     {
-      name: 'Дом "Престиж 2"',
+      name: 'Дом "Престиж 4"',
       width: 12,
       length: 15,
-      floors: 3,
+      floors: "3",
       area: 210.8,
       rooms: 7,
       wallMaterialId: wallMaterials[2].id, // Кирпич
       images: [
-        '/images/projects/prestige1.jpg',
-        '/images/projects/prestige2.jpg'
+        '/images/progres/2_etaj.jpg',
+        '/images/progres/1_etaj.jpg'
       ],
       completions: [
         {
