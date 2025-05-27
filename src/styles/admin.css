@@ -1,0 +1,612 @@
+/* admin.css */
+  
+  .admin-panel {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .logout {
+    font-weight: inherit;
+    position: absolute;
+  }
+  
+  .admin-panel h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .admin-panel section {
+    margin-bottom: 40px;
+  }
+  
+  .admin-panel h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link-button {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 14px;
+    /* background: linear-gradient(91.19deg, #BF1C81 0%, #590D3C 100%); */
+  background: linear-gradient(91.86deg, #97FF6D 0%, #5B9941 63%);
+
+    color: white;
+    text-decoration: none;
+  }
+
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+
+
+  
+  .edit,
+  .delete,
+  .logout {
+    display: inline-block;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .edit {
+    background: linear-gradient(91.86deg, #97FF6D 0%, #5B9941 63%);
+  }
+
+  
+  .delete, .logout {
+    background: linear-gradient(91.19deg, #BF1C81 0%, #590D3C 100%);
+  }
+
+  
+  /* styles/admin.css */
+.image-management {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .image-upload {
+    margin-bottom: 1rem;
+  }
+  
+  .upload-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .upload-button:hover {
+    background-color: #45a049;
+  }
+  
+  .upload-preview {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .preview-image {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .upload-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .image-item {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .delete-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  .error {
+    color: #f44336;
+  }
+  
+  .form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .imageSection {
+    margin: 0rem 0;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .uploadContainer {
+    margin-top: 20px;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .uploadButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .uploadButton:hover {
+    background: #45a049;
+  }
+  
+  .previewContainer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .previewImage {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .addButton,
+  .cancelButton {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .addButton {
+    background: #2196F3;
+    color: white;
+  }
+  
+  .cancelButton {
+    background: #f44336;
+    color: white;
+  }
+  
+  .imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .imageCard {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .deleteButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .imageCard p {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: white;
+    border-radius: 50%;
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .saveButton {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .admin-title {
+
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #444;
+  }
+
+  .admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .submit-button-admin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .not-submit-button-admin {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    color: #dc2626;
+  }
+  .not-submit-button-admin:hover {
+    text-decoration: underline;
+  }
+  .admin-form input {
+    width: 150px;
+  }
+  .admin-form input, .admin-form textarea, .admin-form select {
+    margin-top: 5px;
+    padding: 5px 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .admin-form label {
+    display: flex;
+    flex-direction: column;
+  }
+  .uploadButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+  }
+  .label-container-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+  }
+
+/* Основной контейнер комплектаций */
+.completionsSection {
+  margin: 0rem 0;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Карточка комплектации */
+.completionCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.completionCard:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Шапка карточки */
+.completionHeader {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+/* Список характеристик */
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Элемент характеристики */
+.detailItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.detailItem input, .detailItem textarea {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Кнопки */
+.deleteCompletionButton {
+  height: 31px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ml-t {
+  margin-left: 90px;
+
+}
+
+.deleteDetailButton, .deleteCompletionButton {
+  opacity: 0.7;
+}
+
+.deleteDetailButton:hover, .deleteCompletionButton:hover {
+  opacity: 1;
+  background: #fee2e2;
+}
+
+.addDetailButton, .addCompletionButton {
+  font-weight: normal;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px dashed #bbf7d0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.uploadContainer label {
+  flex-direction: row;
+}
+
+.addDetailButton:hover, .addCompletionButton:hover {
+  background: #dcfce7;
+}
+
+/* Контейнер действий */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+.actions-global {
+  margin-top: 0px;
+}
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.link-admin-title {
+  color: #005091;
+}
+.link-admin-title:hover {
+  text-decoration: underline;
+
+}
+.red-text {
+  font-size: 10px;
+  color: #d32f2f;
+}
+.edit-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.edit-form input, .add-form input {
+  padding: 5px 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.add-form {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+.link-button, .edit, .delete {
+  font-weight: inherit;
+}
+
+.admin-login {
+  max-width: 420px;
+  margin: 200px auto;
+  padding: 32px;
+  background-color: #f1f3f5;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.admin-login h2 {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 28px;
+}
+
+.admin-login .error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.admin-login label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-login input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease;
+}
+
+.admin-login input:focus {
+  border-color: #590D3C;
+  outline: none;
+}
+
+.admin-login button {
+  width: 100%;
+  padding: 12px;
+  background-color: #590D3C;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-login button:hover {
+  background-color: #330722;
+}

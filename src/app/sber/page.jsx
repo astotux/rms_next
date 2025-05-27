@@ -7,6 +7,41 @@ import Link from "next/link";
 import '@/styles/credit.css';
 
 export default async function projectsPage() {
+    const programs = [
+        {
+          name: "Семейная ипотека",
+          title: "Семейная",
+          description: "Ипотека для семей с детьми на строительство дома",
+          pskRange: "6,3%–25,1%",
+          rate: "от 5,3%",
+          amount: "до 12 млн ₽",
+          payment: "от 15%",
+          term: "до 30 лет"
+        },
+        {
+          name: "Ипотека для IT",
+          title: "Для IT",
+          description: "Льготная ипотека для IT-специалистов на строительство",
+          pskRange: "6,3%–9,98%",
+          rate: "от 4,7%",
+          amount: "до 18 млн ₽",
+          payment: "от 15%",
+          term: "до 30 лет"
+        },
+        {
+          name: "Ипотека с мат. капиталом",
+          title: "С мат. капиталом",
+          description: "Программа с использованием материнского капитала",
+          pskRange: "6,3%–25,1%",
+          rate: "от 5,3%",
+          amount: "до 12 млн ₽",
+          payment: "от 15%",
+          term: "до 30 лет"
+        }
+      ];
+      
+
+
 
   return (
     <main>
@@ -68,7 +103,7 @@ export default async function projectsPage() {
                     <span itemProp="name">необходима фотофиксация через спец. приложение</span>
                 </li>
             </ul>
-            <p className="note">
+            <p className="noted">
                 Остальные условия программ кредитования не меняются. Договор можно заключить только с одной подрядной
                 организацией.
             </p>
@@ -79,6 +114,7 @@ export default async function projectsPage() {
             secondLink="https://syktyvkar.domclick.ru/stroitelstvo-domov/katalog-podriadchikov/card/rmstroi_297298"
             secondIcon="/images/icons/domclick.png"
             secondText="ДомКлик"
+            programs={programs}
         />
 
     </section>

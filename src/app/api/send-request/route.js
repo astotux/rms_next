@@ -4,8 +4,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID
-const SITE_URL = process.env.SITE_URL || 'https://example.com' // замени на свой реальный адрес
+const SITE_URL = process.env.SITE_URL
 
 export async function POST(req) {
   const formData = await req.formData()
@@ -13,6 +12,7 @@ export async function POST(req) {
   const phone = formData.get('phone')
   const file = formData.get('file')
   const idProject = formData.get('id_project')
+  const comp = formData.get('comp')
 
   let text = `📥 Новая заявка:\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`
 
@@ -27,30 +27,47 @@ export async function POST(req) {
     }
   }
 
-  if (file && file.name) {
-    const stream = file.stream()
-    const buffer = await new Response(stream).arrayBuffer()
+  if (comp) {
+    text += `\n🏘 Выбранная комплектация: ${comp}`
+  }
 
-    const tgForm = new FormData()
-    tgForm.append('chat_id', CHAT_ID)
-    tgForm.append('caption', text)
-    tgForm.append('parse_mode', 'Markdown')
-    tgForm.append('document', new Blob([buffer]), file.name)
+  // Получаем всех активных админов с chatId
+  const admins = await prisma.admin.findMany({
+    where: {
+      isActive: true,
+      chatId: { not: null },
+    },
+    select: { chatId: true },
+  })
 
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
-      method: 'POST',
-      body: tgForm,
-    })
-  } else {
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text,
-        parse_mode: 'Markdown',
-      }),
-    })
+  for (const admin of admins) {
+    const chatId = admin.chatId
+
+    if (file && file.name) {
+      const stream = file.stream()
+      const buffer = await new Response(stream).arrayBuffer()
+
+      const tgForm = new FormData()
+      tgForm.append('chat_id', chatId)
+      tgForm.append('caption', text)
+      tgForm.append('parse_mode', 'Markdown')
+      tgForm.append('document', new Blob([buffer]), file.name)
+
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
+        method: 'POST',
+        body: tgForm,
+      })
+    } else {
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text,
+          parse_mode: 'Markdown',
+        }),
+      })
+    }
   }
 
   return NextResponse.json({ ok: true })

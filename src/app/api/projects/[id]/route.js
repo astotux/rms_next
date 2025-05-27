@@ -7,8 +7,15 @@ export async function GET(request, { params }) {
     const project = await prisma.project.findUnique({
       where: { id: parseInt(params.id) },
       include: {
-        images: { take: 1 },
-        completions: { orderBy: { price: 'asc' }, take: 1 }
+        images: {},
+        wallMaterial: true,
+        completions: { 
+          orderBy: { price: 'asc' },
+          include: {
+            details: true
+          },
+      },
+        
       }
     });
 

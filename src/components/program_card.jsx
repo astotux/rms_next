@@ -8,41 +8,9 @@ const MortgagePrograms = ({
   secondLink, 
   secondIcon,
   secondText,
+  programs
 }) => {
   const [activeTab, setActiveTab] = useState(0);
-  
-  const programs = [
-    {
-      name: "Семейная ипотека",
-      title: "Семейная",
-      description: "Ипотечная программа для семей с детьми",
-      pskRange: "6,298–23,142%",
-      rate: "от 6%",
-      amount: "до 30 млн ₽",
-      payment: "от 20,1%",
-      term: "до 30 лет"
-    },
-    {
-      name: "Ипотека для IT",
-      title: "Для IT",
-      description: "Льготная программа для IT-специалистов",
-      pskRange: "5,500–21,000%",
-      rate: "от 5%",
-      amount: "до 25 млн ₽",
-      payment: "от 15%",
-      term: "до 25 лет"
-    },
-    {
-      name: "Ипотека с мат. капиталом",
-      title: "С мат. капиталом",
-      description: "Программа с использованием материнского капитала",
-      pskRange: "6,000–22,500%",
-      rate: "от 6,5%",
-      amount: "до 20 млн ₽",
-      payment: "от 10%",
-      term: "до 30 лет"
-    }
-  ];
 
   return (
     <div className="mortgage-right">
@@ -66,23 +34,23 @@ const MortgagePrograms = ({
         
         <div className="program-info">
           <div>
-            <span className="label">Диапазон ПСК</span>
+            <span className="label-top">Диапазон ПСК</span>
             <span className="value" itemProp="annualPercentageRate">{programs[activeTab].pskRange}</span>
           </div>
           <div>
-            <span className="label">Ставка</span>
+            <span className="label-top">Ставка</span>
             <span className="value" itemProp="interestRate">{programs[activeTab].rate}</span>
           </div>
           <div>
-            <span className="label">Сумма</span>
+            <span className="label-top">Сумма</span>
             <span className="value" itemProp="amount">{programs[activeTab].amount}</span>
           </div>
           <div>
-            <span className="label">Взнос</span>
+            <span className="label-top">Взнос</span>
             <span className="value" itemProp="downPayment">{programs[activeTab].payment}</span>
           </div>
           <div className="full-width">
-            <span className="label">Срок кредита</span>
+            <span className="label-top">Срок кредита</span>
             <span className="value" itemProp="loanTerm">{programs[activeTab].term}</span>
           </div>
         </div>
@@ -99,6 +67,8 @@ const MortgagePrograms = ({
           </a>
         </div>
       </div>
+
+      <p className="program-card-text">* Пожалуйста, обратите внимание, что процентные ставки и условия могут варьироваться в зависимости от региона, суммы кредита, наличия страхования и других факторов. Рекомендуется обратиться в банк для получения персонализированной консультации и уточнения условий.</p>
     </div>
   );
 };

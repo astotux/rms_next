@@ -19,6 +19,14 @@ export async function GET(request) {
 
     // Условия фильтрации
     const where = {
+      // Только проекты с хотя бы одним изображением
+      images: {
+        some: {}
+      },
+      // Только проекты с хотя бы одним вариантом комплектации
+      completions: {
+        some: {}
+      },
       ...(minPrice || maxPrice ? {
         completions: {
           some: {

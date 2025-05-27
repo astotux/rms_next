@@ -13,6 +13,7 @@ datasource db {
 model Project {
   id              Int             @id @default(autoincrement())
   name            String          @unique
+  description     String?
   width           Int
   length          Int
   floors          String
@@ -65,4 +66,14 @@ model BuiltHouse {
   image       String   // Путь к изображению
   title       String
   description String
+}
+
+model Admin {
+  id       Int     @id @default(autoincrement())
+  login    String  @unique
+  password String  // Хранится как bcrypt хеш
+  chatId   String? // Telegram Chat ID для 2FA
+  isActive Boolean @default(true)
+  verifyCode String?  // Новое поле
+  codeExpires DateTime? // Новое поле
 }

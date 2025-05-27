@@ -7,6 +7,7 @@ export default function RequestBodyForm() {
   const [phone, setPhone] = useState('')
   const [file, setFile] = useState(null)
   const [buttonText, setButtonText] = useState('Отправить заявку')
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -89,6 +90,20 @@ export default function RequestBodyForm() {
             <span>{buttonText}</span>
           </button>
         </div>
+        {/* Чекбокс с соглашением */}
+        <div className="checkbox-cont">
+                <input
+                  type="checkbox"
+                  id="agreement-checkbox"
+                  required
+                  className="checkbox-input"
+                  checked={isAgreementChecked}
+                  onChange={(e) => setIsAgreementChecked(e.target.checked)}
+                />
+                  <label htmlFor="agreement-checkbox" className="checkbox-label">
+                    Я согласен с <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="agreement-link">условиями обработки персональных данных</a>
+                  </label>
+                </div>
       </div>
     </form>
   )

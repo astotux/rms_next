@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const ShareButton = ({ project }) => {
+const ShareButton = ({ project, position = "top" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const dropdownRef = useRef(null);
@@ -87,7 +87,7 @@ const ShareButton = ({ project }) => {
       </button>
       
       {isOpen && (
-        <div className="share-dropdown">
+        <div className={position === "top" ? "share-dropdown share-dropdown-top" : "share-dropdown share-dropdown-bottom"}>
           <button onClick={() => shareTo('vk')} className="share-option">
             <img src="/images/icons/vk.svg" alt="ВКонтакте" />
             ВКонтакте

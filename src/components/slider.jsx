@@ -36,7 +36,12 @@ const ProjectSlider = () => {
     fetchProjects();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="loading-container">
+      <div className="loading-spinner"></div>
+      <p className="loading-text">Загрузка...</p>
+    </div>
+  );
   if (error) return <div>Error: {error}</div>;
 
   const formatPrice = (price) => {

@@ -72,7 +72,7 @@
   font-size: calc(48px * var(--scale));
   color: #000;
 }
-.note {
+.noted {
   font-weight: 400;
   font-size: calc(20px * var(--scale));
 
@@ -131,7 +131,7 @@
   width: 100%;
 }
 
-.label {
+.label-top {
   display: block;
   font-weight: 500;
   font-size: calc(22px * var(--scale));
@@ -185,6 +185,11 @@
 }
 .mortgage-section{
   padding: 0 calc(280px * var(--scale));
+}
+.program-card-text {
+  color: #b1b1b1;
+  font-size: calc(16px * var(--scale));
+  margin-top: calc(16px * var(--scale));
 }
 
 @media (max-width: 1700px) {
