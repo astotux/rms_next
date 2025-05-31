@@ -75,13 +75,13 @@ export default function RequestProgresForm(id_project) {
         <div className="checkbox-cont">
                 <input
                   type="checkbox"
-                  id="agreement-checkbox"
+                  id="agreement-checkbox-3"
                   required
                   className="checkbox-input"
                   checked={isAgreementChecked}
                   onChange={(e) => setIsAgreementChecked(e.target.checked)}
                 />
-                  <label htmlFor="agreement-checkbox" className="checkbox-label">
+                  <label htmlFor="agreement-checkbox-3" className="checkbox-label">
                     Я согласен с <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="agreement-link">условиями обработки персональных данных</a>
                   </label>
                 </div>

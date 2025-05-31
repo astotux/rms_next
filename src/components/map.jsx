@@ -51,24 +51,29 @@ export default function Map() {
             <YMapDefaultFeaturesLayer />
             {houses.map((house, index) => (
               <YMapMarker
-              key={index}
-              coordinates={house.coordinates}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            >
-              <div className='point'>
-                <img 
-                  className={`point-img`} 
-                  src={house.image} 
-                  alt={house.title}
-                />
-                <div className="point-title">{house.title}</div>
-                <div className={`popup ${openIndex === index ? 'active' : ''}`}>
-                  <img src={house.image} alt={house.title} />
-                  <div className="popup__title">{house.title}</div>
-                  <div className="popup__desc">{house.description}</div>
+                  key={index}
+                  coordinates={house.coordinates}
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                >
+              {house.image.length > 0 && (
+                
+                <div className='point'>
+                  
+                  <img 
+                    className={`point-img`} 
+                    src={house.image} 
+                    alt={house.title}
+                  />
+                  <div className="point-title">{house.title}</div>
+                  <div className={`popup ${openIndex === index ? 'active' : ''}`}>
+                    <img src={house.image} alt={house.title} />
+                    <div className="popup__title">{house.title}</div>
+                    <div className="popup__desc">{house.description}</div>
+                  </div>
                 </div>
-              </div>
-            </YMapMarker>
+              )}
+              
+              </YMapMarker>
             ))}
           </YMap>
         );

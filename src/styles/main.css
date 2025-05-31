@@ -1250,11 +1250,14 @@ input:focus {
 }
 
 .progres-title {
+
     font-size: calc(25.6px * var(--scale));
     font-weight: 600;
 }
 
 .progres-title-cont {
+    margin-top: calc(10px * var(--scale));
+    margin-bottom: calc(10px * var(--scale));
     display: flex;
     gap: calc(19.2px * var(--scale));
     align-items: center;
@@ -3072,7 +3075,7 @@ button:disabled {
 /* Иконка стрелки */
 .dropdown-btn::after {
     content: "▼";
-    font-size: 10px;
+    font-size: calc(10px * var(--scale));
     margin-left: 8px;
     display: inline-block;
     transition: transform 0.2s ease;

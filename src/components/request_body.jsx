@@ -94,13 +94,13 @@ export default function RequestBodyForm() {
         <div className="checkbox-cont">
                 <input
                   type="checkbox"
-                  id="agreement-checkbox"
+                  id="agreement-checkbox-2"
                   required
                   className="checkbox-input"
                   checked={isAgreementChecked}
                   onChange={(e) => setIsAgreementChecked(e.target.checked)}
                 />
-                  <label htmlFor="agreement-checkbox" className="checkbox-label">
+                  <label htmlFor="agreement-checkbox-2" className="checkbox-label">
                     Я согласен с <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="agreement-link">условиями обработки персональных данных</a>
                   </label>
                 </div>

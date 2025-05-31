@@ -189,6 +189,7 @@ export default function AdminPanel() {
           {builtHouses.map((b) => (
             <li key={b.id} className="item">
               <span>{b.title}</span>
+              <span className='red-text'>{b.image.length > 0 ? "" : "нет фото"}</span>
               <div className="actions actions-global">
                 <Link href={`/admin/built-houses/edit/${b.id}`} className="edit">Редактировать</Link>
                 <button onClick={() => deleteItem('built-houses', b.id)} className="delete">Удалить</button>

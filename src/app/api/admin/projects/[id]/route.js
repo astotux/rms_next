@@ -65,18 +65,64 @@ export async function PUT(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
-    const id = parseInt(params.id);
-    if (isNaN(id)) {
-      return NextResponse.json({ error: 'Invalid project ID' }, { status: 400 });
+    // Сначала проверяем существование проекта
+    const existingProject = await prisma.project.findUnique({
+      where: { id: parseInt(params.id) }
+    });
+
+    if (!existingProject) {
+      return new Response(JSON.stringify({ error: 'Project not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    await prisma.project.delete({ where: { id } });
-    return NextResponse.json({ success: true });
+    // Удаляем связанные записи в правильном порядке
+    // 1. Удаляем детали комплектаций
+    await prisma.completionDetail.deleteMany({
+      where: {
+        completion: {
+          projectId: parseInt(params.id)
+        }
+      }
+    });
+
+    // 2. Удаляем комплектации
+    await prisma.completion.deleteMany({
+      where: {
+        projectId: parseInt(params.id)
+      }
+    });
+
+    // 3. Удаляем изображения
+    await prisma.projectImage.deleteMany({
+      where: {
+        projectId: parseInt(params.id)
+      }
+    });
+
+    // 4. Удаляем сам проект
+    const deletedProject = await prisma.project.delete({
+      where: { id: parseInt(params.id) }
+    });
+
+    return new Response(JSON.stringify({ 
+      message: 'Project deleted successfully',
+      deletedProject
+    }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to delete project', details: error.message },
-      { status: 500 }
-    );
+    console.error('Error deleting project:', error);
+    return new Response(JSON.stringify({ 
+      error: 'Internal server error',
+      details: error.message
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
 
