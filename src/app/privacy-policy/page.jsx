@@ -1,10 +1,11 @@
-import RequestForm from "@/components/request"
-import ProjectSlider from "@/components/slider";
-import MortgagePrograms from "@/components/program_card";
-
 import Link from "next/link";
 
 import '@/styles/policy.css';
+
+export const metadata = {
+  title: 'Политика конфиденциальности',
+  description: 'Узнайте, как мы обрабатываем ваши данные и защищаем вашу конфиденциальность.',
+}
 
 export default async function policyPage() {
 

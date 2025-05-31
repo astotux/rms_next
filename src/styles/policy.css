@@ -100,3 +100,14 @@
       font-size: 17px;
     }
   }
+
+.not-found-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-container h1 {
+  font-size: calc(50px * var(--scale));
+}

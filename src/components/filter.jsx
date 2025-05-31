@@ -4,6 +4,7 @@ import DoubleRangeSlider from './doubleRangeSlider'
 import ProjectFeature from './projectFeature';
 import ShareButton from './shareButton';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PROJECTS_PER_PAGE = 9;
 
@@ -130,7 +131,7 @@ export default function Filter() {
         <div className="request-cont">
             <div className="questions-titles-cont top-title-cont">
                 <div className="ready-projects-title-cont title-cont">
-                    <img alt="Компас" className="title-image" src="images/icons/compas.svg" />
+                    <Image alt="Компас" className="title-image" src="images/icons/compas.svg" width={500} height={500} />
                     <h2 className="questions-title title-top">Поиск проектов домов</h2>
                 </div>
                 <div className="all-project-cont">
@@ -234,22 +235,24 @@ export default function Filter() {
                   <div key={project.id} className="search-card ready-project">
                     {project.images?.length > 0 ? (
                       <div className='project-img-conrainer'>
-                        <img 
+                        <Image 
                           className='project-card-img'
                           alt={`Проект дома ${project.name}`} 
                           src={project.images[0].url} 
                           onError={(e) => {
                             e.target.src = '/images/house.png';
-                            e.target.onerror = null; // Предотвращаем бесконечный цикл
+                            e.target.onerror = null;
                           }}
+                          width={800} height={400}
                         />
                       </div>
                     ) : (
                       <div className='project-img-conrainer'>
-                        <img 
+                        <Image 
                           className='project-card-img'
                           alt={`Проект дома ${project.name}`}
                           src="/images/house.png"
+                          width={800} height={400}
                         />
                       </div>
                     )}
@@ -335,7 +338,7 @@ export default function Filter() {
                   onClick={() => handlePageChange(pagination.currentPage - 1)}
                   disabled={pagination.currentPage === 1 || isLoading}
                 >
-                  <img src="/images/icons/arrow_left.svg" alt="Стрелка влево" />
+                  <Image src="/images/icons/arrow_left.svg" alt="Стрелка влево" width={500} height={500} />
                 </button>
                 
                 {renderPageNumbers()}
@@ -345,7 +348,7 @@ export default function Filter() {
                   onClick={() => handlePageChange(pagination.currentPage + 1)}
                   disabled={pagination.currentPage === pagination.totalPages || isLoading}
                 >
-                  <img src="/images/icons/arrow_right.svg" alt="Стрелка вправо" />
+                  <Image src="/images/icons/arrow_right.svg" alt="Стрелка вправо" width={500} height={500} />
                 </button>
               </div>
             )}

@@ -12,7 +12,7 @@ export function middleware(request) {
     const token = request.cookies.get('adminToken')?.value;
 
     if (!token) {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
+      return NextResponse.redirect(new URL('/not-found', request.url));
     }
 
     // В Edge Runtime просто пропускаем

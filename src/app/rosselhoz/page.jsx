@@ -6,6 +6,26 @@ import Link from "next/link";
 
 import '@/styles/credit.css';
 
+export const metadata = {
+    title: "Ипотека от Россельхозбанка — РМСтрой",
+    description: "Строительная ипотека от Россельхозбанка: семейные программы, господдержка, доступные условия. РМСтрой — подрядчик, аккредитованный банком.",
+    openGraph: {
+      title: "Ипотека от Россельхозбанка — РМСтрой",
+      description: "РМСтрой аккредитован в Россельхозбанке. Стройте дом по выгодным ипотечным программам.",
+      url: "https://rmstroi.ru/rshb",
+      type: "website",
+      images: [
+        {
+          url: "https://rmstroi.ru/images/preview.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Ипотека от Россельхозбанка",
+        },
+      ],
+    },
+  };
+  
+
 export default async function projectsPage() {
     const programs = [
         {

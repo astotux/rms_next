@@ -61,7 +61,7 @@ export default function ProjectSelector() {
     <div className="project-selection-cont">
         <div className="project-card ready-project">
         <div className='project-img-conrainer'>
-          <img className='project-card-img' src={project ? project.images?.[0]?.url : '/images/progres/another.png'} alt={project ? project.name : ''} />
+          <Image width={900} height={400} className='project-card-img' src={project ? project.images?.[0]?.url : '/images/progres/another.png'} alt={project ? project.name : ''} />
         </div>
           <div>
               <h3 className="card-title">{project ? project.name : 'Подбор проекта'}</h3>
@@ -70,7 +70,7 @@ export default function ProjectSelector() {
           <ul>
               <li>
                   <div className="card-icon-cont">
-                      <img alt="Размер дома в метрах" src="images/icons/size.svg" />
+                      <Image width={300} height={300} alt="Размер дома в метрах" src="images/icons/size.svg" />
                   </div>
                   <div>
                       <p className="card-parametrs-name">Размер</p>
@@ -79,7 +79,7 @@ export default function ProjectSelector() {
               </li>
               <li>
                   <div className="card-icon-cont">
-                      <img alt="Количество этажей" src="images/icons/floors.svg" />
+                      <Image width={300} height={300} alt="Количество этажей" src="images/icons/floors.svg" />
                   </div>
                   <div>
                       <p className="card-parametrs-name">Этажи</p>
@@ -88,7 +88,7 @@ export default function ProjectSelector() {
               </li>
               <li>
                   <div className="card-icon-cont">
-                      <img alt="Общая площадь дома" src="images/icons/square.svg" />
+                      <Image width={300} height={300} alt="Общая площадь дома" src="images/icons/square.svg" />
                   </div>
                   <div>
                       <p className="card-parametrs-name">Площадь</p>
@@ -97,7 +97,7 @@ export default function ProjectSelector() {
               </li>
               <li>
                   <div className="card-icon-cont">
-                      <img alt="Количество комнат" src="images/icons/rooms.svg" />
+                      <Image width={300} height={300} alt="Количество комнат" src="images/icons/rooms.svg" />
                   </div>
                   <div>
                       <p className="card-parametrs-name">Комнаты</p>
@@ -113,7 +113,7 @@ export default function ProjectSelector() {
           </div>
         </div>
         {showForm && (
-          <img className='arrow-progres' src='images/icons/arrow_progres.png' alt='Прогрес стрелка' />
+          <Image width={900} height={200} className='arrow-progres' src='images/icons/arrow_progres.png' alt='Прогрес стрелка' />
         )}
       {currentStep <= questions.length && (
         <div className="choice-parametrs">
@@ -162,7 +162,7 @@ export default function ProjectSelector() {
                 <Image alt={opt.label} className="project-selection-img" src={`/images/progres/${opt.img}`} width={232.448} height={143.776} />
                 <div className="project-parametr">{opt.label}</div>
                 <div className="project-parametr-choice">
-                  <img alt="Галочка" className="check_mark_purple" src="/images/icons/check_mark_purple.svg" />
+                  <Image width={300} height={300} alt="Галочка" className="check_mark_purple" src="/images/icons/check_mark_purple.svg" />
                 </div>
               </div>
             ))}

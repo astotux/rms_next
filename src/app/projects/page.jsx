@@ -4,6 +4,37 @@ import RequestForm from '@/components/request'
 import ProjectSelector from '@/components/progres'
 import '@/styles/projects.css';
 
+export const metadata = {
+  title: 'РМСтрой - Проекты домов под ключ в Сыктывкаре',
+  description:
+    'РМСтрой – строительство домов из арболита, кирпича, каркаса и газобетона под ключ в Сыктывкаре и области. Индивидуальные проекты, фиксированная цена и гарантия на все работы.',
+  keywords: [
+    'строительство домов Сыктывкар',
+    'дома под ключ',
+    'проекты домов',
+    'арболитовые дома',
+    'каркасные дома',
+    'кирпичные дома',
+    'дом на заказ Сыктывкар',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'РМСтрой',
+    title: 'РМСтрой – Проекты домов под ключ в Сыктывкаре',
+    description:
+      'Индивидуальные проекты, гарантия, фиксированная цена. Строительство домов из арболита, кирпича и газобетона в Сыктывкаре и области.',
+    images: [
+      {
+        url: 'https://rmstroi.ru/images/preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'Дом от РМСтрой',
+      },
+    ],
+  },
+};
+
 export default async function ProjectsPage() {
 
   return (

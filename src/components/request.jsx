@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { IMaskInput } from 'react-imask'
+import Image from 'next/image'
 
 export default function RequestForm() {
   const [name, setName] = useState('')
@@ -81,7 +82,8 @@ export default function RequestForm() {
         </div>
       </div>
       <button className="tasklist-button" type="submit">
-        <img
+        <Image
+          width={500} height={300}
           alt="Оставить заявку на консультацию"
           className="tasklist-icon"
           src="/images/icons/tasklists.svg"

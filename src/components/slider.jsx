@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/styles/main.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const ProjectSlider = () => {
@@ -90,13 +91,14 @@ const ProjectSlider = () => {
             <div className="project-card">
               {project.images.length > 0 && (
                 <div className='project-img-conrainer'>
-                  <img 
+                  <Image 
                     className='project-card-img'
                     alt={`Проект дома ${project.name}`} 
                     src={project.images[0].url} 
                     onError={(e) => {
                       e.target.src = '/images/house.png';
                     }}
+                    width={800} height={400}
                   />
                 </div>
               )}
@@ -121,7 +123,7 @@ const ProjectSlider = () => {
                 )}
                 <li>
                   <div className="card-icon-cont">
-                    <img alt="Размер дома в метрах" src="/images/icons/size.svg" />
+                    <Image alt="Размер дома в метрах" src="/images/icons/size.svg" width={300} height={300} />
                   </div>
                   <div>
                     <p className="card-parametrs-name">Размер</p>
@@ -132,7 +134,7 @@ const ProjectSlider = () => {
                 </li>
                 <li>
                   <div className="card-icon-cont">
-                    <img alt="Количество этажей" src="/images/icons/floors.svg" />
+                    <Image alt="Количество этажей" src="/images/icons/floors.svg" width={300} height={300} />
                   </div>
                   <div>
                     <p className="card-parametrs-name">Этажи</p>
@@ -143,7 +145,7 @@ const ProjectSlider = () => {
                 </li>
                 <li>
                   <div className="card-icon-cont">
-                    <img alt="Общая площадь дома" src="/images/icons/square.svg" />
+                    <Image alt="Общая площадь дома" src="/images/icons/square.svg" width={300} height={300} />
                   </div>
                   <div>
                     <p className="card-parametrs-name">Площадь</p>
@@ -154,7 +156,7 @@ const ProjectSlider = () => {
                 </li>
                 <li>
                   <div className="card-icon-cont">
-                    <img alt="Количество комнат" src="/images/icons/rooms.svg" />
+                    <Image alt="Количество комнат" src="/images/icons/rooms.svg" width={300} height={300} />
                   </div>
                   <div>
                     <p className="card-parametrs-name">Комнаты</p>
@@ -175,10 +177,10 @@ const ProjectSlider = () => {
         ))}
 
         <div ref={navigationPrevRef} className="arrow swiper-button-prev button-purple">
-          <img alt="Стрелка влево" src="/images/icons/arrow_left.svg" />
+          <Image alt="Стрелка влево" src="/images/icons/arrow_left.svg" width={300} height={300} />
         </div>
         <div ref={navigationNextRef} className="arrow swiper-button-next button-purple">
-          <img alt="Стрелка вправо" src="/images/icons/arrow_right.svg" />
+          <Image alt="Стрелка вправо" src="/images/icons/arrow_right.svg" width={300} height={300} />
         </div>
       </Swiper>
     </div>

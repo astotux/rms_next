@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, X, Expand  } from 'lucide-react'; // Можно заменить на свои иконки
+import { ChevronLeft, ChevronRight, X, Expand  } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProjectGallery({ images = [], name }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -53,11 +54,12 @@ export default function ProjectGallery({ images = [], name }) {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         >
-        <img
+        <Image
             src={images?.[selectedIndex]?.url || '/images/house.png'}
             alt={`Проект дома ${name}`}
             className="main-image"
             itemProp="image"
+            width={900} height={300}
         />
         <div className="image-overlay">
             <span className="zoom-icon"><Expand size={48} /></span> {/* Или заменишь на SVG/иконку */}
@@ -67,13 +69,14 @@ export default function ProjectGallery({ images = [], name }) {
         <div className="thumbnails-scroll-wrapper">
           <div className="thumbnails">
             {images.map((img, i) => (
-              <img
+              <Image
                 key={i}
                 src={img.url}
                 alt={`Фото проекта ${name}`}
                 itemProp="image"
                 className={i === selectedIndex ? 'active' : ''}
                 onClick={() => setSelectedIndex(i)}
+                width={300} height={300}
               />
             ))}
           </div>

@@ -6,6 +6,25 @@ import Link from "next/link";
 
 import '@/styles/credit.css';
 
+export const metadata = {
+    title: "Ипотека от Сбербанка — РМСтрой",
+    description: "Программы ипотечного кредитования на строительство дома от Сбербанка. Семейная ипотека, господдержка, IT-ипотека. Аккредитация подрядчика РМСтрой.",
+    openGraph: {
+      title: "Ипотека от Сбербанка — РМСтрой",
+      description: "РМСтрой аккредитован в Сбербанке. Оформите ипотеку на строительство дома по выгодным ставкам.",
+      url: "https://rmstroy.ru/sber",
+      type: "website",
+      images: [
+        {
+          url: "https://rmstroi.ru/images/preview.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Ипотека от Сбербанка",
+        },
+      ],
+    },
+  };
+
 export default async function projectsPage() {
     const programs = [
         {

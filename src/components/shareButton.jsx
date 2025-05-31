@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 const ShareButton = ({ project, position = "top" }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const ShareButton = ({ project, position = "top" }) => {
         disabled
         aria-label="Загрузка..."
       >
-        <img alt="Поделиться" src="/images/icons/share.png" />
+        <Image alt="Поделиться" src="/images/icons/share.png" width={300} height={300} />
       </button>
     );
   }
@@ -83,21 +84,21 @@ const ShareButton = ({ project, position = "top" }) => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Поделиться"
       >
-        <img alt="Поделиться" src="/images/icons/share.png" />
+        <Image alt="Поделиться" src="/images/icons/share.png" width={300} height={300} />
       </button>
       
       {isOpen && (
         <div className={position === "top" ? "share-dropdown share-dropdown-top" : "share-dropdown share-dropdown-bottom"}>
           <button onClick={() => shareTo('vk')} className="share-option">
-            <img src="/images/icons/vk.svg" alt="ВКонтакте" />
+            <Image src="/images/icons/vk.svg" alt="ВКонтакте" width={300} height={300} />
             ВКонтакте
           </button>
           <button onClick={() => shareTo('tg')} className="share-option">
-            <img src="/images/icons/tg.png" alt="Telegram" />
+            <Image src="/images/icons/tg.png" alt="Telegram" width={300} height={300} />
             Telegram
           </button>
           <button onClick={() => shareTo('copy')} className="share-option">
-            <img src="/images/icons/link.png" alt="Копировать ссылку" />
+            <Image src="/images/icons/link.png" alt="Копировать ссылку" width={300} height={300} />
             {isCopied ? 'Скопировано' : 'Копировать'}
           </button>
         </div>

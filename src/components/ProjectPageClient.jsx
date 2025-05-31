@@ -6,6 +6,7 @@ import ProjectGallery from "./projectGallery";
 import ShareButton from './shareButton';
 import { IMaskInput } from 'react-imask';
 import '@/styles/project.css';
+import Image from 'next/image';
 
 export default function ProjectPageClient({ id }) {
   const [project, setProject] = useState(null);
@@ -105,11 +106,10 @@ export default function ProjectPageClient({ id }) {
           <button className="popup-close" onClick={handleClosePopup}>×</button>
           
           <div className="popup-layout">
-            {/* Левая часть - информация о проекте */}
             <div className="popup-project-info">
               {images.length > 0 && (
                 <div className="popup-project-image">
-                  <img 
+                  <Image 
                     src={images[0].url} 
                     alt={`Проект ${name}`} 
                     className="popup-image"
@@ -221,31 +221,31 @@ export default function ProjectPageClient({ id }) {
           <div className="features">
             <div className="feature">
               <div className="card-icon-cont feature-icon-cont">
-                <img alt="Размер дома" src="../images/icons/size.svg" />
+                <Image alt="Размер дома" src="../images/icons/size.svg" width={300} height={300} />
               </div>
               <span className="feature-title">Размер<br /><strong itemProp="width">{width}x{length}</strong></span>
             </div>
             <div className="feature">
               <div className="card-icon-cont feature-icon-cont">
-                <img alt="Этажей" src="../images/icons/floors.svg" />
+                <Image alt="Этажей" src="../images/icons/floors.svg" width={300} height={300} />
               </div>
               <span className="feature-title">Этажи<br /><strong itemProp="numberOfFloors">{floors}</strong></span>
             </div>
             <div className="feature">
               <div className="card-icon-cont feature-icon-cont">
-                <img alt="Площадь" src="../images/icons/square.svg" />
+                <Image alt="Площадь" src="../images/icons/square.svg" width={300} height={300} />
               </div>
               <span className="feature-title">Площадь<br /><strong itemProp="floorSize">{area}</strong></span>
             </div>
             <div className="feature">
               <div className="card-icon-cont feature-icon-cont">
-                <img alt="Комнаты" src="../images/icons/rooms.svg" />
+                <Image alt="Комнаты" src="../images/icons/rooms.svg" width={300} height={300} />
               </div>
               <span className="feature-title">Комнаты<br /><strong itemProp="numberOfRooms">{rooms}</strong></span>
             </div>
             <div className="feature">
               <div className="card-icon-cont feature-icon-cont">
-                <img alt="Материал стен" src="../images/icons/wall.svg" />
+                <Image alt="Материал стен" src="../images/icons/wall.svg" width={300} height={300} />
               </div>
               <span className="feature-title">Материал стен<br /><strong itemProp="material">{wallMaterial.name}</strong></span>
             </div>
@@ -280,7 +280,7 @@ export default function ProjectPageClient({ id }) {
                   type="button"
                   onClick={() => handleOpenPopup(comp)}
                 >
-                  <img alt="Заявка" className="tasklist-icon" src="../images/icons/tasklists.svg" />
+                  <Image alt="Заявка" className="tasklist-icon" src="../images/icons/tasklists.svg" width={600} height={300} />
                   <span>Отправить заявку</span>
                 </button>
                 <p className="note">Оставьте заявку на консультацию.<br /> Мы перезвоним!</p>
@@ -301,7 +301,7 @@ export default function ProjectPageClient({ id }) {
         <div style={{ width: "100%" }}>
           <div className="ready-projects-titles-cont top-title-cont">
             <div className="ready-projects-title-cont title-cont">
-              <img alt="Проекты домов" className="title-image" src="../images/icons/folder.svg" />
+              <Image alt="Проекты домов" className="title-image" src="../images/icons/folder.svg" width={600} height={300} />
               <h2 className="ready-projects-title title-top">Готовые проекты домов</h2>
             </div>
             <div className="all-project-cont">

@@ -4,6 +4,46 @@ import Map from "@/components/map";
 import ProjectSlider from "@/components/slider";
 import ProjectSelector from "@/components/progres";
 import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+    title: 'РМСтрой - Строительство домов под ключ в Сыктывкаре',
+    description:
+      'РМСтрой – строительство домов из арболита, кирпича, каркаса и газобетона под ключ в Сыктывкаре и области. Индивидуальные проекты, фиксированная цена и гарантия на все работы.',
+    keywords: [
+      'строительство домов Сыктывкар',
+      'дома под ключ',
+      'проекты домов',
+      'арболитовые дома',
+      'каркасные дома',
+      'кирпичные дома',
+      'дом на заказ Сыктывкар',
+    ],
+    authors: [{ name: 'РМСтрой', url: 'https://rmstroi.ru' }],
+    creator: 'РМСтрой',
+    metadataBase: new URL('https://rmstroi.ru'),
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'ru_RU',
+      url: 'https://rmstroi.ru',
+      siteName: 'РМСтрой',
+      title: 'РМСтрой – Строительство домов под ключ в Сыктывкаре',
+      description:
+        'Индивидуальные проекты, гарантия, фиксированная цена. Строительство домов из арболита, кирпича и газобетона в Сыктывкаре и области.',
+      images: [
+        {
+          url: 'https://rmstroi.ru/images/preview.png',
+          width: 1200,
+          height: 630,
+          alt: 'Дом от РМСтрой',
+        },
+      ],
+    },
+  };
+  
 
 export default function Home() {
   return (
@@ -19,20 +59,20 @@ export default function Home() {
                         в Сыктывкаре.</p>
                     <ul className="advantages">
                         <li>
-                            <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                            <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg" width={300} height={300} /></div>
                             <span>Без изменений цен в ходе строительства</span>
                         </li>
                         <li>
-                            <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                            <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg" width={300} height={300} /></div>
                             <span>Строим с
                                 эксроу-счетом</span>
                         </li>
                         <li>
-                            <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                            <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg" width={300} height={300} /></div>
                             <span>Индивидуальные проекты под ваш бюджет</span>
                         </li>
                         <li>
-                            <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                            <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg" width={300} height={300} /></div>
                             <span>Гарантия на все виды работ</span>
                         </li>
                     </ul>
@@ -40,28 +80,28 @@ export default function Home() {
                 <div className="banner-tasklist">
                     <RequestForm />
                 </div>
-                <img className="list-img" src="/images/lis.png" />
+                <Image alt="Листья" className="list-img" src="/images/lis.png" width={800} height={400}/>
             </div>
         </section>
         <section className="partner-banks">
             <div className="partner-cont">
                 <div className="partner-title-cont title-cont">
-                    <img alt="Калькулятор ипотеки" className="title-image" src="/images/icons/calculator.svg" />
+                    <Image alt="Калькулятор ипотеки" className="title-image" src="/images/icons/calculator.svg"  width={600} height={300}/>
                     <h2 className="partner-title title-top">Наши банки-партнёры</h2>
                 </div>
                 <div className="banks-container" itemScope="" itemType="https://schema.org/FinancialService">
                     <meta content="Банки-партнеры РМСтрой" itemProp="name" />
                     <Link className="bank-block" href="sber" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="СберБанк" itemProp="name" />
-                        <img alt="СберБанк" className="bank-img" src="/images/sberbank.png" />
+                        <Image alt="СберБанк" className="bank-img" src="/images/sberbank.png"  width={900} height={300} />
                     </Link>
                     <Link className="bank-block" href="vtb" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="ВТБ" itemProp="name" />
-                        <img alt="ВТБ" className="bank-img" src="/images/vtb.png" />
+                        <Image alt="ВТБ" className="bank-img" src="/images/vtb.png"  width={900} height={300} />
                     </Link>
                     <Link className="bank-block" href="rosselhoz" itemScope="" itemType="https://schema.org/BankOrCreditUnion">
                         <meta content="РоссельхозБанк" itemProp="name" />
-                        <img alt="РоссельхозБанк" className="bank-img" src="/images/rosbank.png" />
+                        <Image alt="РоссельхозБанк" className="bank-img" src="/images/rosbank.png"  width={900} height={300} />
                     </Link>
                 </div>
             </div>
@@ -78,7 +118,7 @@ export default function Home() {
             <div style={{width: '100%'}}>
                 <div className="ready-projects-titles-cont top-title-cont">
                     <div className="ready-projects-title-cont title-cont">
-                        <img alt="Проекты домов" className="title-image" src="/images/icons/folder.svg" />
+                        <Image alt="Проекты домов" className="title-image" src="/images/icons/folder.svg"  width={300} height={300} />
                         <h2 className="ready-projects-title title-top">Готовые проекты домов</h2>
                     </div>
                     <div className="all-project-cont">
@@ -95,21 +135,21 @@ export default function Home() {
             <div className="request">
                 <div className="request-cont-2">
                     <div className="request-title-cont title-cont">
-                        <img alt="Тасклист" className="request-tasklist-img" src="/images/icons/tasklists.svg" />
+                        <Image alt="Тасклист" className="request-tasklist-img" src="/images/icons/tasklists.svg"  width={300} height={300} />
                         <div className="request-left-block">
                             <h2 className="request-title">Оставьте заявку на консультацию</h2>
                             <ul className="advantages advant-cont">
                                 <p className="advantages-title">После разговора с нашим специалистом вы получите:</p>
                                 <li>
-                                    <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                                    <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg"  width={300} height={300}/></div>
                                     <span>Концепцию дома</span>
                                 </li>
                                 <li>
-                                    <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                                    <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg"  width={300} height={300}/></div>
                                     <span>Расчет стоимости</span>
                                 </li>
                                 <li>
-                                    <div className="check-block"><img alt="✓" src="/images/icons/check_mark.svg" /></div>
+                                    <div className="check-block"><Image alt="✓" src="/images/icons/check_mark.svg"  width={300} height={300}/></div>
                                     <span>Индивидуальные рекомендации</span>
                                 </li>
                             </ul>
@@ -125,7 +165,7 @@ export default function Home() {
             <div className="banner-request-img"></div>
             <div className="banner-black"></div>
             <div className="banner-request-cont" itemScope="" itemType="https://schema.org/HowTo">
-                <img className="banner-request-list" src="/images/lis2.png" />
+                <Image alt="Листья" className="banner-request-list" src="/images/lis2.png" width={800} height={400}/>
                 <meta content="Как оформить заказ в РМСтрой" itemProp="name" />
                 <h2 className="banner-request-title">Как оформить заказ?</h2>
                 <div className="banner-request-overcont">
@@ -180,7 +220,7 @@ export default function Home() {
             <div style={{width: "100%"}}>
                 <div className="ready-projects-titles-cont top-title-cont">
                     <div className="ready-projects-title-cont title-cont">
-                        <img alt="Карандаш" className="title-image" src="/images/icons/pencil.svg" />
+                        <Image alt="Карандаш" className="title-image" src="/images/icons/pencil.svg"  width={300} height={300}/>
                         <h2 className="ready-projects-title title-top">Подбор проекта</h2>
                     </div>
                     <div className="all-project-cont">
@@ -203,7 +243,7 @@ export default function Home() {
             <div style={{width: "100%"}}>
                 <div className="ready-house-titles-cont top-title-cont">
                     <div className="ready-projects-title-cont title-cont">
-                        <img alt="Глобус" className="title-image" src="/images/icons/globus.svg" />
+                        <Image alt="Глобус" className="title-image" src="/images/icons/globus.svg"  width={300} height={300}/>
                         <h2 className="ready-projects-title title-top">Готовые дома на карте</h2>
                     </div>
                     <div className="all-project-cont">

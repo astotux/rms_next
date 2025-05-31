@@ -6,6 +6,26 @@ import Link from "next/link";
 
 import '@/styles/credit.css';
 
+export const metadata = {
+    title: "Ипотека от ВТБ — РМСтрой",
+    description: "Ипотечные программы на строительство дома от ВТБ. Семейная ипотека, льготы для ИТ-специалистов, господдержка. РМСтрой — аккредитованный подрядчик.",
+    openGraph: {
+      title: "Ипотека от ВТБ — РМСтрой",
+      description: "Оформите ипотеку на строительство дома с аккредитованным подрядчиком РМСтрой. Программы от банка ВТБ.",
+      url: "https://rmstroi.ru/vtb",
+      type: "website",
+      images: [
+        {
+          url: "https://rmstroi.ru/images/preview.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Ипотека от ВТБ",
+        },
+      ],
+    },
+  };
+  
+
 export default async function projectsPage() {
     const programs = [
         {
