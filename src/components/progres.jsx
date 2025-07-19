@@ -113,7 +113,7 @@ export default function ProjectSelector() {
           </div>
         </div>
         {showForm && (
-          <Image width={900} height={200} className='arrow-progres' src='images/icons/arrow_progres.png' alt='Прогрес стрелка' />
+          <img className='arrow-progres' src="images/icons/arrow_progres.png" alt='Прогрес стрелка' />
         )}
       {currentStep <= questions.length && (
         <div className="choice-parametrs">

@@ -3,36 +3,14 @@ import '@/styles/reset.css';
 import { Montserrat } from 'next/font/google'
 import Link from 'next/link';
 
-
-const mont = Montserrat()
-
-export const metadata = {
-    metadataBase: new URL('https://ваш-сайт.com'),
-    openGraph: {
-      title: 'РМСтрой - Проекты домов',
-      description: 'Каталог проектов домов от компании РМСтрой',
-      images: [
-        {
-          url: '/images/og-default.jpg',
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: 'ru_RU',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'РМСтрой - Проекты домов',
-      description: 'Каталог проектов домов от компании РМСтрой',
-      images: ['/images/og-default.jpg'],
-    },
-  };
+const mont = Montserrat({
+  subsets: ['cyrillic'],
+  preload: true,
+})
 
 export default function RootLayout({ children }) {
   return (
-      <html lang="ru">
-
+    <html lang="ru">
       <head>
           <link href="https://fonts.googleapis.com" rel="preconnect" />
           <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
@@ -65,29 +43,55 @@ export default function RootLayout({ children }) {
             <Link href="/">
                 <img alt="РМСтрой" className="logo" src="/images/icons/logo.svg" />
             </Link>
-            <nav className="nav">
+            <nav className="nav desktop-nav">
                 <Link className="rectangle-button green-gradient all-project-div all-project-div-a" href="/projects"><span>Проекты
                         домов</span></Link>
-                        <div class="dropdown">
-                        <button class="dropdown-btn black">Банки-партнёры</button>
-                        <div class="dropdown-content">
+                        <div className="dropdown">
+                        <button className="dropdown-btn black">Банки-партнёры</button>
+                        <div className="dropdown-content">
                             <Link href="/sber">СберБанк</Link>
                             <Link href="/vtb">ВТБ</Link>
                             <Link href="/rosselhoz">РоссельхозБанк</Link>
                         </div>
                     </div>
-                <Link className="black header-link" href="#">О нас</Link>
             </nav>
-            <div className="nav-info">
+            <div className="nav-info desktop-nav">
                 <div>
                     <p className="nav-consult">Консультация | Круглосуточно</p>
-                    <a className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</a>
+                    <Link className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</Link>
                 </div>
-                <a className="vk-logo" href="https://vk.com/rmstroikomi">
+                <Link className="vk-logo" href="https://vk.com/rmstroikomi">
                     <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
-                </a>
+                </Link>
             </div>
-        </header>
+            {/* Бургер-меню */}
+            <button className="burger-btn" aria-label="Открыть меню">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            {/* Мобильное меню */}
+            <div className="mobile-menu">
+              <nav className="mobile-nav">
+                <Link href="/projects">Проекты домов</Link>
+                <div className="mobile-dropdown">
+                  <span>Банки-партнёры</span>
+                  <div className="mobile-dropdown-content">
+                    <Link href="/sber">СберБанк</Link>
+                    <Link href="/vtb">ВТБ</Link>
+                    <Link href="/rosselhoz">РоссельхозБанк</Link>
+                  </div>
+                </div>
+                <div className="mobile-info">
+                  <p className="nav-consult">Консультация | Круглосуточно</p>
+                  <Link className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</Link>
+                  <Link className="vk-logo" href="https://vk.com/rmstroikomi">
+                    <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
+                  </Link>
+                </div>
+              </nav>
+            </div>
+          </header>
         {children}
         <footer>
             <div className="footer-cont">
@@ -97,24 +101,40 @@ export default function RootLayout({ children }) {
                 <nav className="nav">
                     <Link className="black" href="/">Главная</Link>
                     <Link className="black" href="/projects">Все проекты</Link>
-                    
-                    <Link className="black" href="#">О нас</Link>
                 </nav>
                 <div className="nav-info">
                     <div>
                         <p className="nav-consult">Консультация | Круглосуточно</p>
-                        <a className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</a>
+                        <Link className="company-phone" href='tel:+79220808959'>+7 (922) 080-89-59</Link>
                     </div>
-                    <a className="vk-logo" href="https://vk.com/rmstroikomi">
+                    <Link className="vk-logo" href="https://vk.com/rmstroikomi">
                         <img alt="VK" className="vk-logo" src="/images/icons/vk.svg" />
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="p-s">
                 <p>© 2016–2025, ООО «РМСтрой» </p>
-                <p>Москва, 121170, Кутузовский проспект, д. 32, к. 1, ОГРН: 1157746652150 ИНН: 7736249247</p>
+                <p>Москва, 121170, Кутузовский проспект, д. 32, к. 1, ОГРН: 1157746652150 ИНН: 7736249247</p>
             </div>
         </footer>
+        {/* Обычный JS для бургер-меню */}
+        <script dangerouslySetInnerHTML={{__html:`
+          document.addEventListener('DOMContentLoaded', function() {
+            var burger = document.querySelector('.burger-btn');
+            var mobileMenu = document.querySelector('.mobile-menu');
+            if (!burger || !mobileMenu) return;
+            burger.addEventListener('click', function() {
+              burger.classList.toggle('open');
+              mobileMenu.classList.toggle('open');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function(link) {
+              link.addEventListener('click', function() {
+                burger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+              });
+            });
+          });
+        `}} />
       </body>
 
     </html>
